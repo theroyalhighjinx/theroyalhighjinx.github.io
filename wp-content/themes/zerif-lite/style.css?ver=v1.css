@@ -2432,7 +2432,7 @@ width: -webkit-calc(100% / 4);
 .our-team {
 	padding-bottom: 66px;
 	padding-top: 100px;
-	background: #FFF;
+	background: rgba(255, 255, 255, 0.9);
 	/* #FFF */
 }
 .team-member {
@@ -2831,7 +2831,7 @@ width: -webkit-calc(100% / 4);
 }
 
 .tan-bg {
-		background: #8c7620;
+		background: rgba(140, 118, 32, 0.5);
 }
 
 .testimonial .section-header .section-legend {
