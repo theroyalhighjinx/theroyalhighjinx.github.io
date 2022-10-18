@@ -2787,7 +2787,7 @@ width: -webkit-calc(100% / 4);
  **   Testimonial           -----
 -----------------------------------------*/
 .testimonial {
-	background: #8c7620;
+	background: rgb(140 118 32 / 20%);
 	padding-bottom: 90px;
 }
 
