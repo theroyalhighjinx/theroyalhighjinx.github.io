@@ -1939,6 +1939,15 @@ ul.nav > li.current_page_item.current > a:before {
 	margin-top: 15px;
 }
 /*---------------------------------------
+ **   Upcoming Shows            -----
+-----------------------------------------*/
+.upcoming-shows {
+	background: #FFFFFF;	
+}
+
+
+
+/*---------------------------------------
  **   Section: Portfolio          -----
 -----------------------------------------*/
 .works {
@@ -2213,7 +2222,7 @@ width: -webkit-calc(100% / 4);
  **   Section: About us;              -----
 -----------------------------------------*/
 .about-us {
-	background: #272727;
+	background: rgb(0 0 0 / 80%);
 	color: #FFF;
 }
 .about-us .big-intro {
