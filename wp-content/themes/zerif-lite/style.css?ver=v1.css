@@ -2235,7 +2235,7 @@ width: -webkit-calc(100% / 4);
 .about-us .section-header .section-legend {
 	color: #FFF;
 }
-.about-us p {
+.zerif_about_us_center p {
 	text-align: left;
 	color: #939393;
 	font-size: 14px;
@@ -2263,7 +2263,12 @@ width: -webkit-calc(100% / 4);
 .upcoming-shows .section-header h2 {
 	color: #404040;	
 	padding: 40px 0 30px 0;
-}	
+}
+.upcoming-shows p {
+	color: #000;
+	margin: 0;
+}
+
 .about-us {
 	padding-bottom: 0 !important;
 }	
