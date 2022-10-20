@@ -2259,14 +2259,20 @@ width: -webkit-calc(100% / 4);
 }
 .upcoming-shows h1 {
     display: none;
+}
+.upcoming-shows .section-header {
+	padding: 0;
 }	
 .upcoming-shows .section-header h2 {
 	color: #404040;	
 	padding: 40px 0 30px 0;
 }
 .upcoming-shows p {
-	color: #000;
-	margin: 0;
+    color: #000;
+    margin: 10px auto;
+    width: 43%;
+    min-width: 305px;
+    text-align: justify;
 }
 
 .about-us {
