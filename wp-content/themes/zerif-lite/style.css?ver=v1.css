@@ -1942,10 +1942,8 @@ ul.nav > li.current_page_item.current > a:before {
  **   Upcoming Shows            -----
 -----------------------------------------*/
 .upcoming-shows {
-	background: #FFFFFF;	
+	background: rgba(255, 255, 255, 0);	
 }
-
-
 
 /*---------------------------------------
  **   Section: Portfolio          -----
