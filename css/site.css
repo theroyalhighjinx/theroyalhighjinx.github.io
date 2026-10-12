@@ -49,8 +49,10 @@ section { padding: clamp(70px, 10vw, 120px) 0; }
 /* nav */
 .nav { position: fixed; inset: 0 0 auto; z-index: 50; display: flex; align-items: center; justify-content: space-between;
   padding: 12px clamp(16px, 4vw, 40px); transition: background .3s, padding .3s, box-shadow .3s; }
-.nav.scrolled { background: rgba(18, 10, 16, .92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 1px 0 var(--line); padding-top: 8px; padding-bottom: 8px; }
+.nav::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity .3s;
+  background: rgba(18, 10, 16, .92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 1px 0 var(--line); }
+.nav.scrolled::before { opacity: 1; }
+.nav.scrolled { padding-top: 8px; padding-bottom: 8px; }
 .nav-logo img { width: 150px; height: auto; }
 .nav-menu { display: flex; align-items: center; gap: 26px; }
 .nav-menu a { color: var(--cream); text-decoration: none; font-weight: 500; font-size: 15px; }
@@ -64,6 +66,12 @@ section { padding: clamp(70px, 10vw, 120px) 0; }
 .hero { position: relative; min-height: 100svh; display: flex; align-items: flex-end; padding: 120px 0 90px; overflow: hidden; }
 .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%;
   animation: slowzoom 24s ease-out both; }
+.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.2s ease; }
+.hero-video.ready { opacity: 1; }
+.hero-pause { position: absolute; z-index: 2; right: 20px; bottom: 24px; width: 40px; height: 40px; border-radius: 50%;
+  border: 1px solid rgba(246,239,225,.5); background: rgba(18,10,16,.45); cursor: pointer; display: grid; place-items: center; }
+.hero-pause span { width: 12px; height: 14px; border-left: 4px solid var(--cream); border-right: 4px solid var(--cream); }
+.hero-pause.paused span { width: 0; height: 0; border: 0; border-left: 13px solid var(--cream); border-top: 8px solid transparent; border-bottom: 8px solid transparent; margin-left: 4px; }
 .hero::after { content: ""; position: absolute; inset: 0;
   background:
     linear-gradient(90deg, rgba(18,10,16,.7) 0%, rgba(18,10,16,.25) 50%, rgba(18,10,16,0) 75%),
@@ -82,8 +90,8 @@ section { padding: clamp(70px, 10vw, 120px) 0; }
 
 /* release */
 .release { background: radial-gradient(ellipse at 20% 50%, #23306e 0%, #121a46 45%, var(--ink) 100%); }
-.release-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(30px, 6vw, 80px); align-items: center; }
-.release-cover { border-radius: 8px; box-shadow: 0 40px 80px rgba(0,0,0,.6), 0 0 0 1px rgba(242,195,91,.35); transform: rotate(-2deg); }
+.release-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(30px, 6vw, 80px); align-items: center; }
+.release-cover { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 40px 80px rgba(0,0,0,.6), 0 0 0 1px rgba(242,195,91,.35); }
 .release h2 { font-size: clamp(44px, 6vw, 76px); color: var(--gold); }
 .release-date { font-family: var(--display); font-size: 24px; font-style: italic; }
 
@@ -172,14 +180,13 @@ section { padding: clamp(70px, 10vw, 120px) 0; }
 @media (max-width: 900px) {
   .nav-toggle { display: block; z-index: 2; }
   .nav-menu { position: fixed; inset: 0; flex-direction: column; justify-content: center; gap: 22px; background: rgba(18,10,16,.97);
-    transform: translateY(-100%); transition: transform .35s ease; }
+    transform: translateY(-100%); visibility: hidden; transition: transform .35s ease, visibility 0s .35s; }
   .nav-menu a { font-size: 24px; font-family: var(--display); }
-  .nav.open .nav-menu { transform: none; }
+  .nav.open .nav-menu { transform: none; visibility: visible; transition: transform .35s ease, visibility 0s; }
   .nav.open .nav-toggle span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
   .nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
   .nav.open .nav-toggle span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
   .release-grid, .music-grid, .workshop-grid, .contact-grid { grid-template-columns: minmax(0, 1fr); }
-  .release-cover { max-width: 420px; margin: 0 auto; }
   .members { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .video-grid, .quote-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .press-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }

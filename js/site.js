@@ -55,4 +55,22 @@ if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: re
   revealTargets.forEach(el => ro.observe(el));
 }
 
+// Hero background video: load after the page, skip for reduced motion / data saver
+const heroVideo = document.querySelector('.hero-video');
+const pauseBtn = document.querySelector('.hero-pause');
+const saveData = navigator.connection && navigator.connection.saveData;
+if (heroVideo && !saveData && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  window.addEventListener('load', () => {
+    heroVideo.src = window.innerWidth > 900 ? 'video/hero-1280.mp4' : 'video/hero-720.mp4';
+    heroVideo.addEventListener('playing', () => { heroVideo.classList.add('ready'); pauseBtn.hidden = false; }, { once: true });
+    heroVideo.play().catch(() => {});
+  });
+  pauseBtn.addEventListener('click', () => {
+    const paused = !heroVideo.paused;
+    paused ? heroVideo.pause() : heroVideo.play();
+    pauseBtn.classList.toggle('paused', paused);
+    pauseBtn.setAttribute('aria-label', paused ? 'Play background video' : 'Pause background video');
+  });
+}
+
 document.getElementById('year').textContent = new Date().getFullYear();
