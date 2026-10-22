@@ -25,3 +25,15 @@
   .ott-cover { max-width: 360px; }
   .ott-tracks { grid-template-columns: 1fr 1fr; }
 }
+/* streaming countdown, sign-up */
+.countdown { display: flex; gap: 10px; margin: 4px 0 18px; }
+.countdown div { flex: 1 1 0; min-width: 0; max-width: 84px; padding: 10px 6px; text-align: center; border-radius: 12px; background: rgba(255,255,255,.05); border: 1px solid var(--line); }
+.countdown b { display: block; font: 800 28px/1.1 var(--display); font-variant-numeric: tabular-nums; }
+.countdown span { font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
+.ott-signup { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--line); }
+.ott-signup label span { display: block; color: var(--muted); font-size: 15px; margin: 2px 0 10px; }
+.ott-signup-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.ott-signup input[type=email] { flex: 1 1 220px; min-width: 0; padding: 13px 18px; border-radius: 999px; border: 1px solid var(--line);
+  background: rgba(255,255,255,.07); color: var(--cream); font: 16px var(--body); }
+.ott-signup input[type=email]:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+button.btn-ghost { background: transparent; }

@@ -217,3 +217,7 @@ section { padding: clamp(70px, 10vw, 120px) 0; }
   .hero-img, .hero-scroll::after { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
 }
+.nl-form { display: flex; flex-wrap: wrap; gap: 10px; }
+.nl-form input[type=email] { flex: 1 1 220px; min-width: 0; padding: 13px 18px; border-radius: 999px; border: 1px solid var(--line);
+  background: rgba(255,255,255,.07); color: var(--cream); font: 16px var(--body); }
+.nl-form input[type=email]:focus { outline: 2px solid var(--gold); outline-offset: 1px; }

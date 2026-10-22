@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//The Royal High Jinx//Over The Top//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:over-the-top-release-2026@theroyalhighjinx.com
+DTSTAMP:20261022T000000Z
+DTSTART;VALUE=DATE:20261113
+DTEND;VALUE=DATE:20261114
+SUMMARY:Over The Top by The Royal High Jinx is out!
+DESCRIPTION:Album no. 4 from The Royal High Jinx lands on Spotify\, Apple Music and everywhere else today. Listen: https://theroyalhighjinx.com/ott/
+URL:https://theroyalhighjinx.com/ott/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Over The Top is out today
+TRIGGER:PT9H
+END:VALARM
+END:VEVENT
+END:VCALENDAR
