@@ -26,10 +26,9 @@
   <a class="fans-logo" href="../../"><img src="../../img/logo-light.png" alt="The Royal High Jinx" width="180" height="61"></a>
 
   <section class="fans-card" id="signup">
-    <p class="eyebrow">You're nearly on the list 💜</p>
-    <h1>Thank you! One last step</h1>
-    <p class="lead">Check your inbox for an email from us and tap <strong>"Yes, subscribe me"</strong> to confirm. (Peek in spam or Promotions if it's not there in a minute.)</p>
-    <p>Once you're in, we'll give you a heads-up whenever we're playing near you.</p>
+    <p class="eyebrow">You're on the list 💜</p>
+    <h1>Thank you<span id="who"></span>!</h1>
+    <p class="lead">We'll give you a heads-up whenever the High Jinx circus is playing near <span id="where">you</span>. Keep an eye out for emails from info@theroyalhighjinx.com (add us to your contacts so we don't land in spam).</p>
   </section>
 
   <section class="fans-card fans-next" id="next">
@@ -46,6 +45,10 @@
 
   <p class="small fans-foot">© <span id="year">2026</span> The Royal High Jinx · Melbourne, Australia · <a href="../../">theroyalhighjinx.com</a> · We only use your details to tell you about our shows and music, and we never share them.</p>
 </main>
-<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+(function(){var d={};try{d=JSON.parse(sessionStorage.getItem("rhj_fan")||"{}");}catch(e){}var n=(d.n||"").slice(0,40),t=(d.t||"").slice(0,40);
+if(n)document.getElementById("who").textContent=", "+n; if(t)document.getElementById("where").textContent=t;})();
+</script>
 </body>
 </html>

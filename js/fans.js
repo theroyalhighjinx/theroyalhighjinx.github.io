@@ -1,5 +1,5 @@
 /* Gig-alert signup: a plain POST to the Mailchimp audience form (no backend, $0).
-   Mailchimp's "signup thank-you page" is set to redirect back to /near/thanks/. */
+   The POST goes into a hidden iframe, then we show /near/thanks/. */
 (function () {
   var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
 
@@ -24,5 +24,15 @@
       (pref !== 'Email' && !form.PHONE.value.trim()) ? 'Add a mobile number so we can text you (or choose Email).' : '';
     if (problem) { e.preventDefault(); say(problem, true); return; }
     say('Sending…');
+    form.querySelector('button').disabled = true;
+    var done = false, frame = document.getElementById('mc-frame');
+    function go() {
+      if (done) return; done = true;
+      try { sessionStorage.setItem('rhj_fan', JSON.stringify({ n: form.FNAME.value.trim(), t: form.TOWN.value.trim() })); } catch (err) {}
+      location.href = 'thanks/';
+    }
+    // The form posts into a hidden iframe; once Mailchimp responds, show our own thank-you page.
+    frame.addEventListener('load', function () { setTimeout(go, 300); }, { once: true });
+    setTimeout(go, 8000);
   });
 })();
