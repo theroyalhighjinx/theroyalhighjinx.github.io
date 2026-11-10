@@ -1,0 +1,27 @@
+/* Fan signup + links hub pages (near/, links/) */
+.fans { background: radial-gradient(120% 80% at 50% 0%, var(--plum) 0%, var(--ink) 60%) fixed; min-height: 100vh; }
+.fans-main { max-width: 640px; margin: 0 auto; padding: 28px 16px 48px; }
+.fans-logo { display: block; width: 160px; margin: 0 auto 22px; }
+.fans-logo img { width: 100%; height: auto; }
+.fans-card { background: rgba(28, 16, 24, .82); border: 1px solid rgba(242, 195, 91, .22); border-radius: 18px; padding: 26px 22px; margin: 0 0 18px; }
+.fans-card h1 { font-size: clamp(28px, 6vw, 40px); }
+.fans-card h2 { font-size: clamp(22px, 5vw, 28px); }
+.fans .lead { color: var(--cream); opacity: .9; margin: 0 0 18px; }
+.fans-form { display: grid; gap: 14px; }
+.fans-form label { display: grid; gap: 6px; font-size: 15px; font-weight: 500; }
+.fans-form .opt { font-weight: 400; color: var(--muted); font-size: 13px; }
+.fans-form input, .fans-form select { font: inherit; font-size: 16px; padding: 12px 14px; border-radius: 10px; border: 1px solid rgba(246, 239, 225, .28); background: rgba(18, 10, 16, .7); color: var(--cream); width: 100%; box-sizing: border-box; }
+.fans-form input:focus, .fans-form select:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+.fans-form .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.fans-form fieldset.pref { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.fans-form fieldset.pref legend { font-size: 15px; font-weight: 500; margin-bottom: 6px; width: 100%; }
+.fans-form label.inline, .fans-form label.consent { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; }
+.fans-form label.inline input, .fans-form label.consent input { width: auto; margin-top: 4px; accent-color: var(--gold); }
+.fans-form label.consent { font-size: 14px; color: var(--muted); }
+.fans-form .btn { width: 100%; }
+.form-msg { min-height: 1.4em; margin: 0; font-size: 15px; }
+.form-msg.err { color: #ff8a8a; }
+.fans-links { display: grid; gap: 12px; margin: 14px 0; }
+.fans-links .btn { width: 100%; box-sizing: border-box; }
+.fans-foot { text-align: center; margin-top: 22px; }
+@media (max-width: 520px) { .fans-form .row2 { grid-template-columns: 1fr; } }

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Royal High Jinx · Links</title>
+<meta name="description" content="Gig alerts near you, the new album Over The Top, Spotify, Bandcamp and more from The Royal High Jinx.">
+<link rel="canonical" href="https://theroyalhighjinx.com/links/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Royal High Jinx">
+<meta property="og:title" content="The Royal High Jinx · Links">
+<meta property="og:description" content="Gig alerts near you, the new album Over The Top, Spotify and Bandcamp.">
+<meta property="og:image" content="https://theroyalhighjinx.com/img/og.jpg">
+<meta name="theme-color" content="#120a10">
+<link rel="icon" href="../img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css?v=8">
+<link rel="stylesheet" href="../css/fans.css?v=1">
+</head>
+<body class="fans">
+<main class="fans-main" id="main">
+  <a class="fans-logo" href="../"><img src="../img/logo-light.png" alt="The Royal High Jinx" width="180" height="61"></a>
+  <section class="fans-card">
+    <p class="eyebrow">Euro-folk cabaret circus · Melbourne</p>
+    <h1>Hello, Jinxer! 💜</h1>
+    <div class="fans-links" id="links">
+      <a class="btn btn-gold" data-k="near" href="../near/">📍 Gig alerts near you</a>
+      <a class="btn btn-ghost" data-k="ott" href="../ott/">🎧 New album: Over The Top</a>
+      <a class="btn btn-ghost" data-k="spotify" href="https://open.spotify.com/artist/4H6WMJ0X6hjKdWdzXfoSlD" target="_blank" rel="noopener">Follow on Spotify</a>
+      <a class="btn btn-ghost" data-k="bandcamp" href="https://theroyalhighjinx.bandcamp.com/album/over-the-top" target="_blank" rel="noopener">Buy on Bandcamp (CD + download)</a>
+      <a class="btn btn-ghost" data-k="shows" href="../#shows">Upcoming shows</a>
+      <a class="btn btn-ghost" data-k="youtube" href="https://www.youtube.com/channel/UCktEIa6vUCTeATofysQXBWQ" target="_blank" rel="noopener">YouTube</a>
+      <a class="btn btn-ghost" data-k="book" href="../#contact">Book us</a>
+    </div>
+  </section>
+  <p class="small fans-foot">© <span id="year">2026</span> The Royal High Jinx · <a href="../">theroyalhighjinx.com</a></p>
+</main>
+<script>
+(function () {
+  var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+  // Pass the bio source (e.g. ?utm_source=instagram) through to every link so signups and sales can be traced.
+  var q = new URLSearchParams(location.search), src = q.get('utm_source') || 'bio';
+  document.querySelectorAll('#links a').forEach(function (a) {
+    var u = new URL(a.getAttribute('href'), location.href);
+    if (u.hostname.indexOf('spotify.com') > -1 || u.hostname.indexOf('youtube.com') > -1) return;
+    u.searchParams.set('utm_source', src); u.searchParams.set('utm_medium', 'bio'); u.searchParams.set('utm_content', a.dataset.k);
+    if (u.hostname.indexOf('bandcamp.com') > -1) u.searchParams.set('utm_campaign', 'links');
+    a.href = u.toString();
+  });
+})();
+</script>
+</body>
+</html>
